@@ -46,7 +46,7 @@
 		</div>
 		
 		<div class="row container-fluid " id="players">
-			<div class="col-xl-4" >
+			<div class="col-lg-4" >
 				<div id="playercont1">
 				
 				</div>
@@ -59,10 +59,46 @@
 				</div>
 				<br>
 				<div class="btn-group">
-					<button type="button" onclick="stopVid()" id="stp1" class="btn btn-warning"><i class="fa-solid fa-stop"></i></button>
-					<button type="button" onclick="playVid()" id="pl1" class="btn btn-warning"><i class="fa-solid fa-play"></i></button>
-					<button type="button" onclick="pauseVid()" id="paus1" class="btn btn-warning"><i class="fa-solid fa-pause"></i></button>
+					<button type="button" onclick="stopVid(1)" id="stp1" class="btn btn-warning"><i class="fa-solid fa-stop"></i></button>
+					<button type="button" onclick="playVid(1, 63)" id="pl1" class="btn btn-warning"><i class="fa-solid fa-play"></i></button>
+					<button type="button" onclick="pauseVid(1)" id="paus1" class="btn btn-warning"><i class="fa-solid fa-pause"></i></button>
 				</div>
+			</div>
+			<div class="col-lg-4" >
+				<div id="playercont2">
+				
+				</div>
+				<br>
+				<audio  id="player2">
+				  <source src="ttc.wav" type="audio/wav">			
+				</audio> 
+				<div class="progress" style="height:2px">
+					<div class="progress-bar bg-warning" id="progress2" ></div>
+				</div>
+				<br>
+				<div class="btn-group">
+					<button type="button" onclick="stopVid(2)" id="stp2" class="btn btn-warning"><i class="fa-solid fa-stop"></i></button>
+					<button type="button" onclick="playVid(2, 244)" id="pl2" class="btn btn-warning"><i class="fa-solid fa-play"></i></button>
+					<button type="button" onclick="pauseVid(2)" id="paus2" class="btn btn-warning"><i class="fa-solid fa-pause"></i></button>
+				</div>
+			</div>
+			<div class="col-lg-4" >
+				<!-- <div id="playercont1"> -->
+				
+				<!-- </div> -->
+				<!-- <br> -->
+				<!-- <audio  id="player1"> -->
+				  <!-- <source src="BTTG.wav" type="audio/wav">			 -->
+				<!-- </audio>  -->
+				<!-- <div class="progress" style="height:2px"> -->
+					<!-- <div class="progress-bar bg-warning" id="progress1" ></div> -->
+				<!-- </div> -->
+				<!-- <br> -->
+				<!-- <div class="btn-group"> -->
+					<!-- <button type="button" onclick="stopVid()" id="stp1" class="btn btn-warning"><i class="fa-solid fa-stop"></i></button> -->
+					<!-- <button type="button" onclick="playVid()" id="pl1" class="btn btn-warning"><i class="fa-solid fa-play"></i></button> -->
+					<!-- <button type="button" onclick="pauseVid()" id="paus1" class="btn btn-warning"><i class="fa-solid fa-pause"></i></button> -->
+				<!-- </div> -->
 			</div>
 			<!-- <div class="col-xl-4"> -->
 				<!-- <audio  id="player2"> -->
@@ -126,29 +162,43 @@
 		
 		<div class="container-fluid pt-5"id="ttl2" >
 			<h4>About</h4><br>
-			
-			<div id="txt">
-				<p>
-					Who am I?<br>
-					...or did you come here to find out who You are?<br>
-				</p>
-				<p>
-					This is Audio Dentist a pioneer in Abrasive Metal genre. 
-				</p>
-				<p>
+			<div class="row">
+				<div class="col-sm-6">
+				
+				<div id="txt">
+					<p>
+						Who am I?<br>
+						...or did you come here to find out who You are?<br>
+					</p>
+					<p>
+						This is Audio Dentist a pioneer in Abrasive Metal genre. 
+					</p>
+					<p>
 
-					Avant-garde music often fails. To excel, this bold artistic ideas are supported with internalized knowledge of advance music theory, extensive experience, and flawless production.
+						Avant-garde music often fails. To excel, this bold artistic ideas are supported with internalized knowledge of advance music theory, extensive experience, and flawless production.
 
-					Abrasive Metal is a conscious challenge to established norms of music theory, seamlessly incorporating polyrhythms, free rhythm, improvisation, sound design, polychords, atonality, and daring key changes. This genre is relying on improvisation to create chaotic environment for heavily distorted guitars and frequent use of hard dissonance to emphasize the tension before resolving down creating satisfying release. The result is an innovative sonic tapestry that defies conventions and breaks new ground.
+						Abrasive Metal is a conscious challenge to established norms of music theory, seamlessly incorporating polyrhythms, free rhythm, improvisation, sound design, polychords, atonality, and daring key changes. This genre is relying on improvisation to create chaotic environment for heavily distorted guitars and frequent use of hard dissonance to emphasize the tension before resolving down creating satisfying release. The result is an innovative sonic tapestry that defies conventions and breaks new ground.
 
-					Described as "abrasive", "intense", and "powerful" his compositions channel a chaotic energy that leaves an indelible mark.  
-				</p>
-				<p>
-					Witness the chaotic power of a mind unbound by tradition, and experience a sonic journey like no other.
-				</p>
+						Described as "abrasive", "intense", and "powerful" his compositions channel a chaotic energy that leaves an indelible mark.  
+					</p>
+					<p>
+						Witness the chaotic power of a mind unbound by tradition, and experience a sonic journey like no other.
+					</p>
+				</div>
+				
+				
+				</div>
+				<div class="col-sm-6" id="mypic">
+				
+				
+					
+				
+				</div>
 			</div>
+			
 		</div>
-	  
+		
+		
 	  
 		<div id="btm" class="container-xxl"> 
 			<div class="d-flex flex-row-reverse">
@@ -168,12 +218,20 @@
 	<script> 
 	let  myInterval = 0; 
 	let vid = document.getElementById("player1");
-	let sec, percent, add;
-	sec= 0;
+	let percent, add, num, currentsec, totalsec;
+	currentsec = 0;
 	percent= 0;
 	add =0;
+	num =0;
 	
-	function playVid() { 
+	function playVid(index, total) {
+		if (num != 0 && num != index) {
+				stopVid(num);
+			}
+		
+		vid = document.getElementById("player"+index);
+		totalsec = total;
+		num = index;
 		vid.play(); 
 		add = 1;
 		clearInterval(myInterval);
@@ -189,10 +247,11 @@
 	} 
 	
 	function myTimer() {
-		sec = sec + add;
-		percent = sec / 63 *100 ;
 		
-		document.getElementById("progress1").style.width = percent+"%";
+		currentsec = currentsec + add;
+		percent = currentsec / totalsec *100 ;
+		
+		document.getElementById("progress"+num).style.width = percent+"%";
 		if (percent == 100) {
 			add =0;
 			myInterval = 0; 
@@ -202,19 +261,27 @@
 	
 	}
 
-	function pauseVid() { 
+	function pauseVid(index) { 
+		if (num == index){
+		<!-- num = index; -->
+		vid = document.getElementById("player"+index);
 		vid.pause(); 
 		add =0;
 		clearInterval(myInterval);
+		}
 	} 
 	
-	function stopVid() { 
+	function stopVid(index) { 
+		if (num == index){
+		<!-- num = index; -->
+		vid = document.getElementById("player"+index);
 		vid.load(); 
-		document.getElementById("progress1").style.width = "0%";
+		document.getElementById("progress"+index).style.width = "0%";
 		clearInterval(myInterval);
 		add =0;
 		myInterval = 0; 
-		sec = 0;
+		currentsec = 0;
+		}
 	} 
 		
 	
