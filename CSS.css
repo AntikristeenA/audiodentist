@@ -72,31 +72,36 @@
 	
 }
 
-#playercont1{
-	background-image: url("bttgpic.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	height:500px;
-	background-position: bottom; 
-	opacity: 1;
-}
-#playercont2{
-	background-image: url("ttcpic.jpeg");
-	background-size: contain;
-	background-repeat: no-repeat;
-	height:500px;
-	background-position: bottom; 
-	opacity: 1;
+/* #playercont1{ */
+	/* background-image: url("bttgpic.png"); */
+	/* background-size: contain; */
+	/* background-repeat: no-repeat; */
+	/* height:500px; */
+	/* background-position: bottom;  */
+	/* opacity: 1; */
+/* } */
+/* #playercont2{ */
+	/* background-image: url("ttcpic.jpeg"); */
+	/* background-size: contain; */
+	/* background-repeat: no-repeat; */
+	/* height:500px; */
+	/* background-position: bottom;  */
+	/* opacity: 1; */
+/* } */
+#sngpic{
+	
+	/* max-height:500px; */
+	
 }
 
 #mypic{
-	background-image: url("mypic.jpg");
-	background-size: contain;
-	background-repeat: no-repeat;
-	height:500px;
-	background-position: bottom;
-	box-shadow: 0px 0px 30px 40px black inset;
-	opacity: 1;
+	/* background-image: url("mypic.jpg"); */
+	/* background-size: contain; */
+	/* background-repeat: no-repeat; */
+	/* height:500px; */
+	/* background-position: bottom; */
+	/* box-shadow: 0px 0px 30px 40px black inset; */
+	/* opacity: 1; */
 	filter: contrast(115%);
 }
 
