@@ -77,7 +77,7 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	height:500px;
-	background-position: top; 
+	background-position: bottom; 
 	opacity: 1;
 }
 #playercont2{
@@ -85,12 +85,12 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	height:500px;
-	background-position: top; 
+	background-position: bottom; 
 	opacity: 1;
 }
 
 #mypic{
-	background-image: url("mypic.JPG");
+	background-image: url("mypic.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 	height:500px;
