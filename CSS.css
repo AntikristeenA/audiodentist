@@ -140,7 +140,7 @@
 }
 
 #mypic{
-	background-image: url("mypic.jpg"); 
+	background-image: url("mypic.png"); 
 	background-size: contain;
 	background-repeat: no-repeat;
 	height:500px; 
